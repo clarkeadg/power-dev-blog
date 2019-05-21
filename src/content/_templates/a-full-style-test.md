@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Demos
-image: img/5SYB4YftFjU.jpg
+title: A Full and Comprehensive Style Test
+image: img/testimg-cover.jpg
 author: Ghost
 date: 2018-09-30T07:03:47.149Z
 tags: 
   - Tests
+draft: true
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.

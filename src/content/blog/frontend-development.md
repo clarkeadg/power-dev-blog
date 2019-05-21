@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Getting Started with Ember
-image: img/rGmBvx_tx58.jpg
+title: Frontend Development
+image: ../img/Z_EP28UG63w_maxresdefault.jpg
 author: Ghost
 date: 2018-09-30T07:03:47.149Z
 tags: 
-  - Tutorials
+  - Tests
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.

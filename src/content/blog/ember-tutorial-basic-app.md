@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Build a Youtube Thumbnail Finder with Ember
-image: img/rGmBvx_tx58_maxresdefault.jpg
+title: Getting Started with Ember
+image: ../img/rGmBvx_tx58.jpg
 author: Ghost
 date: 2018-09-30T07:03:47.149Z
 tags: 

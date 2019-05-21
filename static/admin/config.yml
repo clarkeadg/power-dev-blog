@@ -7,14 +7,33 @@ public_folder: /img
 
 collections:
   - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+    label: "Post"
+    folder: "src/content/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     editor:
      preview: false
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: image}
+      - { label: "Author", name: "author", widget: "hidden", default: "Ghost  }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Page"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    editor:
+     preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: image}
+      - { label: "Author", name: "author", widget: "hidden", default: "Ghost  }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
