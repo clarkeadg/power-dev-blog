@@ -1,189 +1,430 @@
 ---
 layout: post
-title: Build a Youtube Thumbnail Finder with Ember
-image: ../img/rGmBvx_tx58_maxresdefault.jpg
 author: Ghost
+title: Build a Youtube Thumbnail Finder with Ember
 date: 2018-09-30T07:03:47.149Z
-tags: 
+image: ../img/rGmBvx_tx58_maxresdefault.jpg
+tags:
   - Tutorials
 ---
+For this tutorial we'll build a site that finds **Youtube thumbails** with **Ember JS** and **Bootstrap**.
 
-Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
+Here's links to both a working demo site and the final source code on Github.
 
----
+- [Demo Site](https://clarkeanimation.com/apps/ember/youtube-thumbnails/)
+- [Source Code](https://www.github.com/clarkeadg)
 
-# Heading 1
+### Prequisites
+Follow the *Getting Started with Ember* instructions to build a basic **Ember** app
 
-## Heading 2
+- [Getting Started with Ember](/posts/ember-tutorial-basic-app)
 
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
+> Once done, follow the instructions below...
 
 ---
 
-Lorem ipsum dolor sit amet, [test link]() adipiscing elit. **This is strong.** Nullam dignissim convallis est. Quisque aliquam. _This is emphasized._ Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New York Times</cite> (That’s a citation). <span style="text-decoration:underline;">Underline</span>. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
+### Create thumbnails service
 
-HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type `COPY filename`. <del>Dinner’s at 5:00.</del> <span style="text-decoration:underline;">Let’s make that 7</span>. This <del>text</del> has been struck.
+- Type the following to generate a new service
 
----
-
-## Media
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-
-### Big Image
-
-![Test Image](img/testimg1.jpg)
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-### Small Image
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-
-![Small Test Image](img/testimg2.jpg)
-
-Labore et dolore.
-
----
-
-## List Types
-
-### Definition List
-
-Definition List Title
-: This is a definition list division.
-
-Definition
-: An exact statement or description of the nature, scope, or meaning of something: _our definition of what constitutes poetry._
-
-### Ordered List
-
-1. List Item 1
-2. List Item 2
-   1. Nested list item A
-   2. Nested list item B
-3. List Item 3
-
-### Unordered List
-
-- List Item 1
-- List Item 2
-  - Nested list item A
-  - Nested list item B
-- List Item 3
-
----
-
-## Table
-
-| Table Header 1 | Table Header 2 | Table Header 3 |
-| :------------: | :------------: | :------------: |
-| Division 1     | Division 2     | Division 3     |
-| Division 1     | Division 2     | Division 3     |
-| Division 1     | Division 2     | Division 3     |
-
----
-
-## Preformatted Text
-
-Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that’s a good default — with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users.
-
-### Code
-
-Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or using [jekyll's highlight
-filter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) to
-highlight a block of code. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.
-
-```css
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
+```sh
+ember g service youtube-thumbnails
 ```
 
+- Open *app/services/youtube-thumbnails.js* and replace the contents with the following 
+
+```javascript
+import Service from '@ember/service';
+import Cookies from 'ember-cli-js-cookie';
+
+export default Service.extend({
+
+  loading: false,
+
+  watchUrl: "https://www.youtube.com/watch?v=",
+
+  imageUrl: "https://img.youtube.com/vi",
+
+  id: null,
+
+  init() {
+    this._super(...arguments);
+    this.set("id", Cookies.get('ytid') || "lVTbAT61ojY")
+  },
+
+  setId(ytid) {
+    this.set("id", ytid)
+    Cookies.set('ytid', ytid);
+  },
+
+  setLoading(loading) {
+    this.set("loading", loading)
+  }
+
+});
+```
 ---
 
-## Blockquotes
+### Create thumbnail item component
 
-Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.
+- Type the following to generate a new component
 
-> Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you. — [HAL 9000](http://en.wikipedia.org/wiki/HAL_9000)
+```sh
+ember g component item-thumbnail
+```
 
-And here’s a bit of trailing text.
+- Open *app/components/item-thumbnail.js* and replace the contents with the following 
+
+```javascript
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { inject } from "@ember/service";
+
+export default Component.extend({ 
+
+  thumbnail: inject("youtube-thumbnails"),
+
+  filetype: "jpg",
+
+  imageUrl: computed('ytid', 'size', function() {
+    return this.thumbnail.imageUrl + "/" + this.ytid + "/" + this.size + "." + this.filetype;
+  }),
+
+  downloadUrl: computed('ytid', 'size', function() {
+    return "download.php" + "?ytid=" + this.ytid + "&size=" + this.size;
+  }),
+
+  filename: computed('ytid', 'size', function() {
+    return this.ytid + "_" + this.size + "." + this.filetype;
+  })
+
+});
+```
+
+- Open *app/templates/components/item-thumbnail.hbs* and replace the contents with the following 
+
+```hbs
+<div class="item-thumbnail">
+
+  {{! IMAGE }}
+  <a href={{downloadUrl}} target="_blank" download={{filename}}>
+    <img class="img-thumbnail rounded-0" src={{imageUrl}}>
+  </a>
+
+  <div class="py-2">  
+
+    {{! TITLE }}
+    <h5 class="font-weight-bold text-uppercase mb-0">{{title}}</h5>
+
+    {{! LINK }}
+    <p>
+      <a href={{imageUrl}} target="_blank">{{imageUrl}}</a>
+    </p>
+
+  </div>
+  
+</div>
+```
+---
+
+### Create thumbnail list component
+
+- Type the following to generate a new component
+
+```sh
+ember g component list-thumbnails
+```
+
+- Open *app/components/list-thumbnails.js* and replace the contents with the following 
+
+```javascript
+import Component from '@ember/component';
+import { inject } from "@ember/service";
+
+export default Component.extend({
+
+  thumbnail: inject("youtube-thumbnails")  
+  
+});
+
+```
+
+- Open *app/templates/components/list-thumbnails.hbs* and replace the contents with the following 
+
+```hbs
+<div class="card border-0 bg-white">
+  <div class="card-body">
+
+    {{#if thumbnail.loading}}
+
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+    {{else}}
+
+      {{! ROW OF 1 THUMBNAILS }}
+      <div class="row mb-2 justify-content-md-center">
+        
+        {{! THUMBNAIL - 1 }}
+        <div class="col-sm-12 col-md-10 col-md-auto">
+          {{item-thumbnail title="1280x720" ytid=thumbnail.id size="maxresdefault"}} 
+        </div>
+
+      </div>
+
+      {{! ROW OF 2 THUMBNAILS }}
+      <div class="row mb-2 align-items-center">
+
+        {{! THUMBNAIL - 2 }}
+        <div class="col-sm-12 col-md-6">
+          {{item-thumbnail title="480x360" ytid=thumbnail.id size="0"}}
+        </div>
+        
+        {{! THUMBNAIL - 1 }}
+        <div class="col-sm-12 col-md-6">
+          {{item-thumbnail title="320x180" ytid=thumbnail.id size="mqdefault"}}
+        </div>            
+
+      </div>
+      
+      {{! ROW OF 4 THUMBNAILS }}
+      <div class="row">
+
+        {{! THUMBNAIL - 1 }}
+        <div class="col-sm-12 col-md-3">
+          {{item-thumbnail title="120x90" ytid=thumbnail.id size="default"}}
+        </div>
+        
+        {{! THUMBNAIL - 1 }}
+        <div class="col-sm-12 col-md-3">
+          {{item-thumbnail title="120x90" ytid=thumbnail.id size="1"}}
+        </div>
+
+        {{! THUMBNAIL - 2 }}
+        <div class="col-sm-12 col-md-3">
+          {{item-thumbnail title="120x90" ytid=thumbnail.id size="2"}}
+        </div>            
+
+        {{! THUMBNAIL - 3 }}
+        <div class="col-sm-12 col-md-3">
+          {{item-thumbnail title="120x90" ytid=thumbnail.id size="3"}}
+        </div>
+
+      </div>
+
+    {{/if}}
+
+  </div>
+</div>
+```
+---
+
+### Create form component
+
+- Type the following to generate a new component
+
+```sh
+ember g component form-youtube
+```
+
+- Open *app/components/form-youtube.js* and replace the contents with the following 
+
+```javascript
+import Component from '@ember/component';
+import { inject } from "@ember/service";
+
+export default Component.extend({
+
+  thumbnail: inject("youtube-thumbnails"),
+
+  query: "",
+
+  placeholder: "",
+
+  loading: false,
+  formError: false,
+  errorMessage: "",
+
+  init() {
+    this._super(...arguments);
+    this.set("placeholder", `https://www.youtube.com/watch?v=${this.thumbnail.id}` )
+  },
+
+  actions: {
+    
+    findThumbnails() {
+
+      this.setProperties({
+        formError: false,
+        errorMessage: ''
+      });
+
+      if (!this.query) {
+        return;
+      }
+
+      const match = this.query.split(this.thumbnail.watchUrl);
+      if (match.length < 2) {
+        this.setProperties({
+          formError: true,
+          errorMessage: 'Not a valid youtube url'
+        });
+        return;
+      }
+
+      const ytid = match[1];
+      if (ytid.length < 11) {
+        this.setProperties({
+          formError: true,
+          errorMessage: 'Not a valid youtube url'
+        });
+        return;
+      }
+
+      const _self = this;
+
+      // show spinny loader
+      _self.thumbnail.setLoading(true);
+      setTimeout(function(){
+        _self.thumbnail.setId(ytid);
+        _self.thumbnail.setLoading(false);
+      },500)      
+
+    },
+
+    clearErrors() {
+
+      this.setProperties({
+        formError: false,
+        errorMessage: ''
+      });
+
+    }
+  }
+
+});
+```
+
+- Open *app/templates/components/form-youtube.hbs* and replace the contents with the following 
+
+```hbs
+<div class="form-youtube">  
+  
+  {{! YOUTUBE FORM }}
+  <form autocomplete="off" {{action "findThumbnails" on="submit"}}>   
+    
+    <div class="input-search position-relative m-auto shadow-sm form-group">
+     
+      {{! INPUT QUERY }}
+      {{input key-press=(action "clearErrors") value=query placeholder=placeholder class="form-control w-100 px-3 py-4 border-light" classBinding="formError:is-invalid"}}
+      
+      {{! ERROR MESSAGE }}
+      {{#if formError}}
+        <div class="invalid-tooltip">{{errorMessage}}</div>
+      {{/if}}
+      
+      {{! ICON / Button }}
+      <div class="position-absolute top right mt-2 mr-2 pt-1">
+        <button class="btn btn-transparent p-0" type="submit">
+          {{fa-icon "youtube" prefix="fab" size="2x"}}
+        </button>
+      </div>
+
+    </div>
+    
+    {{! SEARCH BUTTON }}
+    <div class="buttons p-4">
+      <button type="submit" class="btn btn-light mx-1 mb-3 text-muted font-weight-bold">Find Thumbnails</button>
+    </div>
+
+  </form>
+</div>
+```
+---
+
+### Create index route
+
+- Type the following to generate a new route called *index*
+
+```sh
+ember g route index
+```
+
+- Open *app/templates/index.hbs* and replace the contents with the following 
+
+```hbs
+<main>
+    
+  {{! TOP }}
+  <div class="mb-0 pt-5 pb-0 text-center rounded-0 jumbotron bg-white">
+    <div class="pt-5 row justify-content-md-center">
+      <div class="col-sm-12 col-md-6 col-md-auto">
+        
+        {{! TITLE }}
+        <h1 class="display-4 font-weight-bold">
+          <div>Youtube</div>
+          <small>Thumbnail Finder</small>
+        </h1>
+        
+        {{! DESCRIPTION }}
+        <p>Just enter a Youtube link below to find all thumbnails!</p> 
+
+        {{! SEARCH }}
+        {{form-youtube}}
+
+      </div>
+    </div>
+  </div>
+
+  {{! LIST }}
+  <div class="container-fluid border-top text-center px-0 pt-2 pb-5 bg-white">
+    <div class="container">
+      {{list-thumbnails}}
+    </div> 
+  </div>
+
+</main>
+```
+---
+
+
+### Create **php** download script
+
+- Create a new file *public/download.php* and replace the contents with the following 
+
+```php
+<?php
+
+  // inputs
+  $ytid = $_GET["ytid"];
+  $size = $_GET["size"];
+
+  // image variables
+  $imageUrl = "https://img.youtube.com/vi";
+  $filetype = "jpg";
+
+  // build image url
+  $imageUrl = $imageUrl . "/" . $ytid . "/" . $size . "." . $filetype;
+
+  // fetch image
+  $image = file_get_contents($imageUrl);
+  
+  // return the image
+  header('Content-type: image/jpeg');
+  echo $image;
+
+?>
+```
+---
+
+That's it 👍
+
+- Type `ember serve` to run the app.
+
+Your app will be running at: [http://localhost:4200](http://localhost:4200)
 
 ---
 
-## Text-level semantics
-
-HTML elements
-
-<p>The <a href="#">a element</a> example <br>
-The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> examples <br>
-The <b>b element</b> example <br>
-The <cite>cite element</cite> example <br>
-The <code>code element</code> example <br>
-The <del>del element</del> example <br>
-The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples <br>
-The <em>em element</em> example <br>
-The <i>i element</i> example <br>
-The <ins>ins element</ins> example <br>
-The <kbd>kbd element</kbd> example <br>
-The <mark>mark element</mark> example <br>
-The <q>q element <q>inside</q> a q element</q> example <br>
-The <s>s element</s> example <br>
-The <samp>samp element</samp> example <br>
-The <small>small element</small> example <br>
-The <span>span element</span> example <br>
-The <strong>strong element</strong> example <br>
-The <sub>sub element</sub> example <br>
-The <sup>sup element</sup> example <br>
-The <var>var element</var> example <br>
-The <u>u element</u> example</p>
-* * *
-
-## Embeds
-
-Sometimes all you want to do is embed a little love from another location and set your post alive.
-
-### Video
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Culpa qui officia deserunt mollit anim id est laborum.
-
-<iframe src="//player.vimeo.com/video/103224792" width="600" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-### Slides
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-<script async class="speakerdeck-embed" data-id="585245d01ee1013238737e42b879906f" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-
-Culpa qui officia deserunt mollit anim id est laborum.
-
-### Audio
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/52891122&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-
-Culpa qui officia deserunt mollit anim id est laborum.
-
-### Code
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-
-<p data-height="268" data-theme-id="0" data-slug-hash="bcqhe" data-default-tab="result" data-user="rglazebrook" class='codepen'>See the Pen <a href='http://codepen.io/rglazebrook/pen/bcqhe/'>Simple Rotating Spinner</a> by Rob Glazebrook (<a href='http://codepen.io/rglazebrook'>@rglazebrook</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-Isn't it beautiful.
-
-*[HTML]: Hyper Text Markup Language
-*[CSS]: Cascading Style Sheets
+- [Demo Site](https://clarkeanimation.com/apps/ember/youtube-thumbnails/)
+- [Source Code](https://www.github.com/clarkeadg)
