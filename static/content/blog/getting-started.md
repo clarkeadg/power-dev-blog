@@ -42,10 +42,10 @@ Check the links below to start learning to code.
 
 You should start learning in this order.
 
-1. [Frontend Development](/frontend-development)
+1. [Frontend Development](/blog/frontend-development)
     - Learn how to build simple static websites
     - Learn how to build single page apps
 
-1. [Backend Development](/backend-development)
+1. [Backend Development](/blog/backend-development)
     - Learn how to deploy your website to the internet
     - Learn how to make apis and connect to databases
