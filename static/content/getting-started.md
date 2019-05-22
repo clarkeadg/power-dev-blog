@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting Started
-image: img/9URw9LasJ5E_maxresdefault.jpg
+image: img/_17EW9ZmywM_maxresdefault.jpg
 author: Ghost
 date: 2019-05-20T07:03:47.149Z
 tags: 

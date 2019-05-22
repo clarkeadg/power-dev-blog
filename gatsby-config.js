@@ -9,15 +9,14 @@ module.exports = {
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
-  plugins: [
-    'gatsby-plugin-netlify-cms',
+  plugins: [    
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: path.join(__dirname, 'src', 'content'),
+        path: path.join(__dirname, 'static', 'content'),
       },
     },
     {
@@ -48,7 +47,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-casper.netlify.com',
+        siteUrl: 'https://powerdev.netlify.com',
       },
     },
     'gatsby-plugin-emotion',
@@ -81,5 +80,6 @@ module.exports = {
         siteSpeedSampleRate: 10,
       },
     },
+    'gatsby-plugin-netlify-cms',
   ],
 };
