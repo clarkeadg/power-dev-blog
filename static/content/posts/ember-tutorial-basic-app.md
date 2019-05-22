@@ -1,189 +1,276 @@
 ---
 layout: post
-title: Getting Started with Ember
-image: ../img/rGmBvx_tx58.jpg
 author: Ghost
-date: 2018-09-30T07:03:47.149Z
-tags: 
+title: Getting Started with Ember
+date: 2019-05-22T07:00:47.149Z
+image: ../img/rGmBvx_tx58.jpg
+tags:
   - Tutorials
 ---
 
-Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
+For this tutorial we'll build a basic site with **Ember JS** and **Bootstrap**.
 
----
+Here's links to both a working demo site and the final source code on Github.
 
-# Heading 1
+- [Demo Site](https://clarkeanimation.com/apps/ember/basic/)
+- [Source Code](https://www.github.com/clarkeadg)
 
-## Heading 2
+### Prequisites
+You should have these installed before beginning.
 
-### Heading 3
+1. [Node JS](https://nodejs.org)
 
-#### Heading 4
+### Install Ember JS if you don't have it installed already
 
-##### Heading 5
+```sh
+npm install -g ember-cli
 
-###### Heading 6
-
----
-
-Lorem ipsum dolor sit amet, [test link]() adipiscing elit. **This is strong.** Nullam dignissim convallis est. Quisque aliquam. _This is emphasized._ Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New York Times</cite> (That’s a citation). <span style="text-decoration:underline;">Underline</span>. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
-
-HTML and CSS are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type `COPY filename`. <del>Dinner’s at 5:00.</del> <span style="text-decoration:underline;">Let’s make that 7</span>. This <del>text</del> has been struck.
-
----
-
-## Media
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-
-### Big Image
-
-![Test Image](img/testimg1.jpg)
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-### Small Image
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-
-![Small Test Image](img/testimg2.jpg)
-
-Labore et dolore.
-
----
-
-## List Types
-
-### Definition List
-
-Definition List Title
-: This is a definition list division.
-
-Definition
-: An exact statement or description of the nature, scope, or meaning of something: _our definition of what constitutes poetry._
-
-### Ordered List
-
-1. List Item 1
-2. List Item 2
-   1. Nested list item A
-   2. Nested list item B
-3. List Item 3
-
-### Unordered List
-
-- List Item 1
-- List Item 2
-  - Nested list item A
-  - Nested list item B
-- List Item 3
-
----
-
-## Table
-
-| Table Header 1 | Table Header 2 | Table Header 3 |
-| :------------: | :------------: | :------------: |
-| Division 1     | Division 2     | Division 3     |
-| Division 1     | Division 2     | Division 3     |
-| Division 1     | Division 2     | Division 3     |
-
----
-
-## Preformatted Text
-
-Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that’s a good default — with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users.
-
-### Code
-
-Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or using [jekyll's highlight
-filter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) to
-highlight a block of code. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.
-
-```css
-#container {
-    float: left;
-    margin: 0 -240px 0 0;
-    width: 100%;
-}
 ```
 
 ---
 
-## Blockquotes
+### Create a new Ember App
 
-Let’s keep it simple. Italics are good to help set it off from the body text. Be sure to style the citation.
-
-> Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you. — [HAL 9000](http://en.wikipedia.org/wiki/HAL_9000)
-
-And here’s a bit of trailing text.
+```sh
+ember new basic-app
+```
 
 ---
 
-## Text-level semantics
+### Navigate to the app folder and start the local development server
 
-HTML elements
+```sh
+cd basic-app
+ember serve
+```
 
-<p>The <a href="#">a element</a> example <br>
-The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr> examples <br>
-The <b>b element</b> example <br>
-The <cite>cite element</cite> example <br>
-The <code>code element</code> example <br>
-The <del>del element</del> example <br>
-The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples <br>
-The <em>em element</em> example <br>
-The <i>i element</i> example <br>
-The <ins>ins element</ins> example <br>
-The <kbd>kbd element</kbd> example <br>
-The <mark>mark element</mark> example <br>
-The <q>q element <q>inside</q> a q element</q> example <br>
-The <s>s element</s> example <br>
-The <samp>samp element</samp> example <br>
-The <small>small element</small> example <br>
-The <span>span element</span> example <br>
-The <strong>strong element</strong> example <br>
-The <sub>sub element</sub> example <br>
-The <sup>sup element</sup> example <br>
-The <var>var element</var> example <br>
-The <u>u element</u> example</p>
-* * *
+You should have a running Ember JS app 👍
 
-## Embeds
+It will be running at: [http://localhost:4200](http://localhost:4200)
 
-Sometimes all you want to do is embed a little love from another location and set your post alive.
+You should see a welcome page that looks like this:
 
-### Video
+![](https://guides.emberjs.com/images/ember-cli/default-welcome-page.png)
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+> **Note:** You may use the command `ember serve` to start your development server and press **ctrl-c** to stop the server.
 
-Culpa qui officia deserunt mollit anim id est laborum.
+---
 
-<iframe src="//player.vimeo.com/video/103224792" width="600" height="337" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+### Install packages
 
-### Slides
+We will need to install some npm packages.  Stop the server by pressing **crtl-c**.
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Then install these npm packages
 
-<script async class="speakerdeck-embed" data-id="585245d01ee1013238737e42b879906f" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+1. Bootstrap
+1. Font Awesome Icons
 
-Culpa qui officia deserunt mollit anim id est laborum.
+```sh
+npm install --save-dev bootstrap @fortawesome/free-brands-svg-icons @fortawesome/free-solid-svg-icons
+```
 
-### Audio
+Next, we will install these Ember Addons
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+1. Ember Sass
+2. Ember Font Awesome
+1. Ember JS Cookie
 
-<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/52891122&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+```sh
+ember install ember-cli-sass @fortawesome/ember-fontawesome ember-cli-js-cookie
+```
+---
 
-Culpa qui officia deserunt mollit anim id est laborum.
+### Edit index file
 
-### Code
+- Open *app/index.html* and change the title
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+```html
+<title>Basic App</title>
+```
+---
 
-<p data-height="268" data-theme-id="0" data-slug-hash="bcqhe" data-default-tab="result" data-user="rglazebrook" class='codepen'>See the Pen <a href='http://codepen.io/rglazebrook/pen/bcqhe/'>Simple Rotating Spinner</a> by Rob Glazebrook (<a href='http://codepen.io/rglazebrook'>@rglazebrook</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+### Create SASS file
 
-Isn't it beautiful.
+- Rename *app/styles.css* to *app/styles.scss*
 
-*[HTML]: Hyper Text Markup Language
-*[CSS]: Cascading Style Sheets
+- Open *app/styles.scss* and replace the contents with the following
+
+
+```sass
+// Bootstrap variables
+$font-family-sans-serif: "Arial";
+$font-family-monospace:  "Arial";
+$enable-shadows: true;
+$enable-gradients: true;
+$font-size-base: 0.9rem;
+
+$grid-breakpoints: (
+  "xs": 0,
+  "sm": 480px,
+  "md": 769px,
+  "lg": 1025px,
+  "xl": 1400px
+);
+
+$container-max-widths: (
+  "sm": 100%,
+  "md": 100%,
+  "lg": 960px,
+  "xl": 1310px
+);
+
+// Remove borders on focus on links and buttons
+:focus { outline: none !important; box-shadow: none !important; }
+
+// position utils
+.position-absolute {
+  &.top { top: 0; }
+  &.bottom { bottom: 0; }
+  &.left { left: 0; }
+  &.right { right: 0; }
+}
+
+// prevent images, iframes, and videos from going offscreen
+img, iframe, video { max-width: 100%; }
+
+// prevent rows from going offscreen
+.row { max-width: 100%; margin: 0 auto; }
+
+// remove underline from links
+a,a:hover { text-decoration: none; }
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+$footerHeight: "80px";
+
+.layout {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: $footerHeight;
+}
+
+footer {
+  height: $footerHeight;
+  position: absolute;
+  bottom: 0;
+  left: 0;              
+}
+```
+---
+
+### Add Bootstrap javascript
+
+- Open *ember-cli-build.js* and replace the contents with the following
+
+
+```javascript
+'use strict';
+
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+
+module.exports = function(defaults) {
+  let app = new EmberApp(defaults, {
+    // Add options here
+  });
+
+  // Use `app.import` to add additional libraries to the generated
+  // output files.
+  //
+  // If you need to use different assets in different
+  // environments, specify an object as the first parameter. That
+  // object's keys should be the environment name and the values
+  // should be the asset to use in that environment.
+  //
+  // If the library that you are including contains AMD or ES6
+  // modules that you would like to import into your application
+  // please specify an object with the list of modules as keys
+  // along with the exports of each module as its value.
+
+  app.import("node_modules/bootstrap/dist/js/bootstrap.bundle.js");
+
+  return app.toTree();
+};
+```
+---
+
+### Edit application template
+
+- Open *app/templates/application* and replace the contents with the following
+
+```hbs
+<div class="layout">
+
+  {{! PAGE CONTENT }}
+  {{outlet}}  
+
+  {{! FOOTER }}
+  <footer class="border-top bg-dark py-3 container-fluid">
+    <div class="container px-0">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-flex justify-content-start align-items-center">
+            <span class="text-light">Basic App</span>
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="d-flex justify-content-end">
+            <nav class="p-0 navbar navbar-expand navbar-dark">
+              <ul class="align-items-center navbar-nav">
+                <li class="nav-item">
+                  <a target="_blank" rel="noopener" href="https://www.github.com/clarkeadg" class="py-0 nav-link">
+                    {{fa-icon "github" prefix="fab" size="2x"}}
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+```
+---
+
+### Create index route
+
+- Type the following to generate a new route called *index*
+
+```sh
+ember g route index
+```
+
+- Open *app/templates/index.hbs* and replace the contents with the following 
+
+```hbs
+<main>
+    
+  {{! TOP }}
+  <div class="mb-0 pt-5 pb-0 text-center rounded-0 jumbotron bg-white">
+    <div class="pt-5 row justify-content-md-center">
+      <div class="col-sm-12 col-md-6 col-md-auto">
+        
+        {{! TITLE }}
+        <h1 class="display-4 font-weight-bold">
+          <div>Hello</div>
+          <small>This is a basic app</small>
+        </h1>  
+
+      </div>
+    </div>
+  </div>
+
+</main>
+```
+---
+
+That's it 👍
+
+- Type `ember serve` to run the app.
+
+Your app will be running at: [http://localhost:4200](http://localhost:4200)
+
+---
+- [Demo Site](https://clarkeanimation.com/apps/ember/basic/)
+- [Source Code](https://www.github.com/clarkeadg)
