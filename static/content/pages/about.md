@@ -1,10 +1,10 @@
 ---
 layout: post
-title: About
-image: ../img/5SYB4YftFjU.jpg
 author: Ghost
+title: About
 date: 2018-09-30T07:03:47.149Z
-tags: 
+image: /img/maxresdefault-8-.jpg
+tags:
   - Tests
 ---
 
