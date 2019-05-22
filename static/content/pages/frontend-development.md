@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Frontend Development
-image: ../img/Z_EP28UG63w_maxresdefault.jpg
+image: ../img/welcome-to-ghost.jpg
 author: Ghost
 date: 2018-09-30T07:03:47.149Z
 tags: 
