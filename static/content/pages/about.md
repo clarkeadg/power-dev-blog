@@ -3,7 +3,7 @@ layout: post
 author: Ghost
 title: About
 date: 2018-09-30T07:03:47.149Z
-image: /img/maxresdefault-8-.jpg
+image: ../img/maxresdefault-8-.jpg
 tags:
   - Tests
 ---
