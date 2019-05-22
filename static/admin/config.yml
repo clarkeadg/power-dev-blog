@@ -6,15 +6,36 @@ media_folder: static/content/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "static/content/blog"
+
+  - name: "pages"
+    label: "Page"
+    folder: "static/content/pages"
     create: true
     slug: "{{slug}}"
     editor:
      preview: false
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "posts"
+    label: "Post"
+    folder: "static/content/posts"
+    create: true
+    slug: "{{slug}}"
+    editor:
+     preview: false
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
