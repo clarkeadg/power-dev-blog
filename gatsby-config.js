@@ -10,6 +10,12 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [    
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     {
@@ -79,12 +85,6 @@ module.exports = {
         // Determines how often site speed tracking beacons will be sent
         siteSpeedSampleRate: 10,
       },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    }
+    },    
   ],
 };
