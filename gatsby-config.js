@@ -57,8 +57,7 @@ module.exports = {
         siteUrl: 'https://powerdev.netlify.com',
       },
     },
-    'gatsby-plugin-emotion',
-    
+    'gatsby-plugin-emotion',    
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
