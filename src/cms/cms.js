@@ -7,7 +7,7 @@ import "netlify-cms/dist/cms.css";
 //import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 // templates
-//import BlogPostPreview from './preview-templates/BlogPostPreview'
+import BlogPostPreview from './preview-templates/BlogPostPreview'
 
 // widgets
 import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
@@ -17,7 +17,7 @@ import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/custom
 //CMS.registerMediaLibrary(cloudinary);
 
 // register templates
-//CMS.registerPreviewTemplate('posts', BlogPostPreview)
+CMS.registerPreviewTemplate('posts', BlogPostPreview)
 
 // register widgets
 CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);
