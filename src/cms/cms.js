@@ -8,7 +8,7 @@ import CMS from 'netlify-cms-app'
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 
 // widgets
-import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
+//import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
 
 // register image services
 //CMS.registerMediaLibrary(uploadcare);
@@ -18,4 +18,4 @@ import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/custom
 CMS.registerPreviewTemplate('posts', BlogPostPreview)
 
 // register widgets
-CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);
+//CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);

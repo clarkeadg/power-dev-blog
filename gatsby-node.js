@@ -22,7 +22,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       // fix for netlify cms images, change absolute paths to relative (- added by Brian 5/22/2019)
       /*if (node.frontmatter && node.frontmatter.image) {
         if (node.frontmatter.image.match( /^\/content\/img/i )) {
-
           node.frontmatter.image = ".." + node.frontmatter.image.replace("content/", "");
           console.log(node.frontmatter.image)
         }
