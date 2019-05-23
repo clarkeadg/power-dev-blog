@@ -208,6 +208,7 @@ export interface PageContext {
 
 const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
   const post = props.data.markdownRemark || { frontmatter: {} };
+  console.log(post)
   let width = '';
   let height = '';
   if (post.frontmatter.image && post.frontmatter.image.childImageSharp) {
