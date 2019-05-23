@@ -1,4 +1,6 @@
-import CMS from 'netlify-cms-app'
+import React from "react";
+import CMS from "netlify-cms";
+import "netlify-cms/dist/cms.css";
 
 // image services
 //import uploadcare from 'netlify-cms-media-library-uploadcare'
