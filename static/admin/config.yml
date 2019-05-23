@@ -12,8 +12,6 @@ collections:
     folder: "static/content/pages"
     create: true
     slug: "{{slug}}"
-    editor:
-     preview: false
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
@@ -28,8 +26,6 @@ collections:
     folder: "static/content/posts"
     create: true
     slug: "{{slug}}"
-    editor:
-     preview: false
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }

@@ -16,7 +16,7 @@ import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/custom
 //CMS.registerMediaLibrary(cloudinary);
 
 // register templates
-CMS.registerPreviewTemplate('post', BlogPostPreview)
+CMS.registerPreviewTemplate('posts', BlogPostPreview)
 
 // register widgets
 CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);
