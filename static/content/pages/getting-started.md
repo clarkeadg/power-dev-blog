@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting Started
-image: /content/img/writing.jpg
+image: ../img/writing.jpg
 author: Ghost
 date: 2019-05-20T07:03:47.149Z
 tags: 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Demos
-image: /content/img/5SYB4YftFjU.jpg
+image: ../img/5SYB4YftFjU.jpg
 author: Ghost
 date: 2018-09-30T07:03:47.149Z
 tags: 
