@@ -1,4 +1,3 @@
-import React from "react";
 import CMS from "netlify-cms";
 import "netlify-cms/dist/cms.css";
 
@@ -10,7 +9,7 @@ import "netlify-cms/dist/cms.css";
 import BlogPostPreview from './preview-templates/BlogPostPreview'
 
 // widgets
-import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
+import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage";
 
 // register image services
 //CMS.registerMediaLibrary(uploadcare);
