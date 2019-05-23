@@ -19,7 +19,7 @@ collections:
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -35,7 +35,7 @@ collections:
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
 

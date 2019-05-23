@@ -5,17 +5,17 @@ import CMS from 'netlify-cms-app'
 //import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 // templates
-import BlogPostPreview from './preview-templates/BlogPostPreview'
+//import BlogPostPreview from './preview-templates/BlogPostPreview'
 
 // widgets
-//import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
+import { CustomPathImageControl, CustomPathImagePreview } from "./widgets/customPathImage.js";
 
 // register image services
 //CMS.registerMediaLibrary(uploadcare);
 //CMS.registerMediaLibrary(cloudinary);
 
 // register templates
-CMS.registerPreviewTemplate('posts', BlogPostPreview)
+//CMS.registerPreviewTemplate('posts', BlogPostPreview)
 
 // register widgets
-//CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);
+CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);
