@@ -6,6 +6,7 @@ media_folder: static/content/img
 public_folder: /img
 
 site_url: https://powerdev.netlify.com
+logo_url: https://powerdev.netlify.com/content/img/ghost-logo.png
 
 collections:
 
@@ -24,7 +25,6 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "posts"
-    format: "frontmatter"
     label: "Post"
     folder: "static/content/posts"
     create: true

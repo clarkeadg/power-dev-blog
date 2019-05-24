@@ -394,7 +394,7 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
         <PostFullImage>
           <img
             style={{ height: '100%' }}
-            src={image}
+            src={image.replace("../img", "/content/img")}
           />
         </PostFullImage>
       )}
