@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Helmet } from 'react-helmet';
 
-import Content, { HTMLContent } from '../components/Content'
+//import Content, { HTMLContent } from '../components/Content'
 import AuthorCard from '../components/AuthorCard';
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -342,12 +342,14 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   title,
   helmet,
 }) => {
- //const PostContent = contentComponent || Content
+  const PostContentComponent = contentComponent || Content
+
+  console.log(PostContentComponent)
 
   return (
     <article css={[PostFull]}>
       
-      <PostContent htmlAst={content} />
+      <PostContentComponent htmlAst={content} />
       
       { /* <PostFullFooter>
         <AuthorCard author={post.frontmatter.author} />
@@ -404,7 +406,7 @@ const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
           <div css={inner}>
             <BlogPostTemplate
               content={post.htmlAst}
-              contentComponent={HTMLContent}
+              contentComponent={PostContent}
               description={post.frontmatter.description}
               helmet={
                 <Helmet titleTemplate="%s | Blog">
