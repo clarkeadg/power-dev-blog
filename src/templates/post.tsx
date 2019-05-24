@@ -941,7 +941,7 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
       )}
       
 
-      <PostContent css={PostFullContent} content={content} />
+      <PostContent className="post-full-content" content={content} />
 
       { /* <PostContentComponent htmlAst={content} /> */ }
       

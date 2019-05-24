@@ -7,6 +7,8 @@ import { colors } from '../styles/colors';
 // @ts-ignore
 import favicon from '../../src/favicon.ico';
 
+import '../styles/all.scss'
+
 interface IndexProps {
   className?: string;
 }

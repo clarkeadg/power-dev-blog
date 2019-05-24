@@ -10,6 +10,7 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [    
+    'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-netlify-cms',
