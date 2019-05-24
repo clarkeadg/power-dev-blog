@@ -333,6 +333,7 @@ interface BlogPostTemplateProps {
   helmet: object;
 }
 
+// this should be just the post content section
 export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = ({
   content,
   contentComponent,
@@ -343,7 +344,7 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
 }) => {
   const PostContent = contentComponent || Content
 
-  console.log(content, contentComponent, description, tags, title, helmet)
+  //console.log(content, contentComponent, description, tags, title, helmet)
 
   //return (<div/>)
 
@@ -369,29 +370,44 @@ interface BlogPostProps {
   data: any;
 }
 
+// this should be the entire page with layout
 const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
-  console.log(data)
+  //console.log(data)
+  
   const { markdownRemark: post } = data
+  console.log(post)
 
   return (
-
-      <BlogPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
+    <IndexLayout className="post-template">
+      <Wrapper css={PostTemplate}>
+        <header css={[outer, SiteHeader]}>
+          <div css={inner}>
+            <SiteNav />
+          </div>
+        </header>
+        <main id="site-main" className="site-main" css={[SiteMain, outer]}>
+          <div css={inner}>
+            <BlogPostTemplate
+              content={post.html}
+              contentComponent={HTMLContent}
+              description={post.frontmatter.description}
+              helmet={
+                <Helmet titleTemplate="%s | Blog">
+                  <title>{`${post.frontmatter.title}`}</title>
+                  <meta
+                    name="description"
+                    content={`${post.frontmatter.description}`}
+                  />
+                </Helmet>
+              }
+              tags={post.frontmatter.tags}
+              title={post.frontmatter.title}
             />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
-
+          </div>
+        </main>
+        <Footer />
+      </Wrapper>
+    </IndexLayout>
   )
 }
 
