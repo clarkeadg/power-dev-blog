@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { BlogPostTemplate } from "../../templates/post.tsx";
-import { CSSInjector } from "../../components/CSSInjector";
+import CSSInjector from "../../components/CSSInjector.js";
 
 const BlogPostPreview = ({ entry, widgetFor }) => {
   const data = entry.getIn(['data']).toJS()

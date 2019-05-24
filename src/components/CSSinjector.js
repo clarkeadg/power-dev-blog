@@ -2,7 +2,7 @@ import React from 'react'
 import createCache from '@emotion/cache'
 import { CacheProvider } from '@emotion/core'
 
-export class CSSInjector extends React.Component {
+export default class CSSInjector extends React.Component {
   constructor() {
     super()
     const iframe = document.getElementsByTagName('iframe')[0]
