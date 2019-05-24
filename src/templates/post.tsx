@@ -342,13 +342,24 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   title,
   helmet,
 }) => {
-  const PostContent = contentComponent || Content
+  const post = contentComponent || Content
 
+  console.log(post.frontmatter)
   //console.log(content, contentComponent, description, tags, title, helmet)
 
-  //return (<div/>)
+  //if (!post.frontmatter) {
+  //  return (<div/>)
+  //}
+
+
 
   return (
+
+      <PostContent htmlAst={content} />
+
+  )
+
+  /*return (
     <section className="section">
       {helmet || ''}
       <div className="container content">
@@ -358,11 +369,17 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
               {title}
             </h1>
             <p>{description}</p>
-            <PostContent content={content} />
+            <PostContent htmlAst={content} />
           </div>
         </div>
       </div>
     </section>
+  )*/
+
+  return (
+    <article css={[PostFull, !post.frontmatter.image && NoImage]}>
+      <PostContent htmlAst={content} />
+    </article>
   )
 }
 
@@ -372,7 +389,7 @@ interface BlogPostProps {
 
 // this should be the entire page with layout
 const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
-  //console.log(data)
+  console.log(data)
   
   const { markdownRemark: post } = data
   console.log(post)
@@ -388,7 +405,7 @@ const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
         <main id="site-main" className="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <BlogPostTemplate
-              content={post.html}
+              content={post.htmlAst}
               contentComponent={HTMLContent}
               description={post.frontmatter.description}
               helmet={
