@@ -346,7 +346,16 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   //const PostContentComponent = contentComponent || PostContent
   const PostContent = contentComponent || Content
 
-  //console.log(PostContentComponent)
+  console.log(
+    "BlogPostTemplate",
+    //content,
+    //contentComponent,
+    description,
+    tags,
+    title,
+    image,
+    //helmet
+  )
 
   return (
     <article css={[PostFull, !image && NoImage]}>
@@ -385,29 +394,6 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
 
     </article>
   )
-
-  /*return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent htmlAst={content} />
-          </div>
-        </div>
-      </div>
-    </section>
-  )*/
-
-  /*return (
-    <article css={[PostFull, !post.frontmatter.image && NoImage]}>
-      <PostContent htmlAst={content} />
-    </article>
-  )*/
 }
 
 interface BlogPostProps {
@@ -416,10 +402,10 @@ interface BlogPostProps {
 
 // this should be the entire page with layout
 const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
-  console.log(data)
+  console.log("BlogPost", data)
   
   const { markdownRemark: post } = data
-  console.log(post)
+  //console.log(post)
 
   return (
     <IndexLayout className="post-template">
