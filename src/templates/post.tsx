@@ -383,6 +383,15 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
           />
         </PostFullImage>
       )}
+
+      {(image && !image.childImageSharp) && (
+        <PostFullImage>
+          <img
+            style={{ height: '100%' }}
+            src={image}
+          />
+        </PostFullImage>
+      )}
       
       <PostContent content={content} />
       { /* <PostContentComponent htmlAst={content} /> */ }
