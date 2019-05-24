@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Helmet } from 'react-helmet';
 
-//import Content, { HTMLContent } from '../components/Content'
+import Content, { HTMLContent } from '../components/Content'
 import AuthorCard from '../components/AuthorCard';
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -340,16 +340,43 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   description,
   tags,
   title,
+  image,
   helmet,
 }) => {
-  const PostContentComponent = contentComponent || PostContent
+  //const PostContentComponent = contentComponent || PostContent
+  const PostContent = contentComponent || Content
 
-  console.log(PostContentComponent)
+  //console.log(PostContentComponent)
 
   return (
-    <article css={[PostFull]}>
+    <article css={[PostFull, !image && NoImage]}>
+
+      <PostFullHeader>
+        <PostFullMeta>
+          {tags &&
+            tags.length > 0 && (
+              <>
+                <DateDivider>/</DateDivider>
+                <Link to={`/tags/${_.kebabCase(tags[0])}/`}>
+                  {tags[0]}
+                </Link>
+              </>
+          )}
+        </PostFullMeta>
+        <PostFullTitle>{title}</PostFullTitle>
+      </PostFullHeader>
+
+      {(image && image.childImageSharp) && (
+        <PostFullImage>
+          <Img
+            style={{ height: '100%' }}
+            fluid={image.childImageSharp.fluid}
+          />
+        </PostFullImage>
+      )}
       
-      <PostContentComponent htmlAst={content} />
+      <PostContent content={content} />
+      { /* <PostContentComponent htmlAst={content} /> */ }
       
       { /* <PostFullFooter>
         <AuthorCard author={post.frontmatter.author} />
@@ -405,8 +432,8 @@ const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
         <main id="site-main" className="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <BlogPostTemplate
-              content={post.htmlAst}
-              contentComponent={PostContent}
+              content={post.html}
+              contentComponent={HTMLContent}
               description={post.frontmatter.description}
               helmet={
                 <Helmet titleTemplate="%s | Blog">
@@ -419,6 +446,7 @@ const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
               }
               tags={post.frontmatter.tags}
               title={post.frontmatter.title}
+              image={post.frontmatter.image}
             />
           </div>
         </main>
