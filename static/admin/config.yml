@@ -5,6 +5,8 @@ backend:
 media_folder: static/content/img
 public_folder: /img
 
+site_url: https://powerdev.netlify.com
+
 collections:
 
   - name: "pages"

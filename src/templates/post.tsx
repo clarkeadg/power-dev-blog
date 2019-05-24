@@ -402,10 +402,10 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
       <PostContent content={content} />
       { /* <PostContentComponent htmlAst={content} /> */ }
       
-      <PostFullFooter>
+      { /* <PostFullFooter>
         <AuthorCard author={author} />
         <PostFullFooterRight authorId={author.id} />
-      </PostFullFooter>
+      </PostFullFooter> */ }
 
     </article>
   )
