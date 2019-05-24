@@ -1,5 +1,5 @@
 import CMS from "netlify-cms";
-import "netlify-cms/dist/cms.css";
+//import "netlify-cms/dist/cms.css";
 
 // image services
 //import uploadcare from 'netlify-cms-media-library-uploadcare'
