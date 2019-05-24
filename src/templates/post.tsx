@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Helmet } from 'react-helmet';
 
+import Content, { HTMLContent } from '../components/Content'
 import AuthorCard from '../components/AuthorCard';
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -117,7 +118,7 @@ const ReadNextFeed = styled.div`
   padding: 40px 0 0 0;
 `;
 
-interface PageTemplateProps {
+/*interface PageTemplateProps {
   pathContext: {
     slug: string;
   };
@@ -232,8 +233,6 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
           <meta property="og:image" content={`${config.siteUrl}${post.frontmatter.image.childImageSharp.fluid.src}`} />
         )}
         <meta property="article:published_time" content={post.frontmatter.date} />
-        {/* not sure if modified time possible */}
-        {/* <meta property="article:modified_time" content="2018-08-20T15:12:00.000Z" /> */}
         {post.frontmatter.tags && (
           <meta property="article:tag" content={post.frontmatter.tags[0]} />
         )}
@@ -267,7 +266,6 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
         </header>
         <main id="site-main" className="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
-            {/* TODO: no-image css tag? */}
             <article css={[PostFull, !post.frontmatter.image && NoImage]}>
               <PostFullHeader>
                 <PostFullMeta>
@@ -297,7 +295,6 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
               )}
               <PostContent htmlAst={post.htmlAst} />
 
-              {/* The big email subscribe modal content */}
               {config.showSubscribe && <Subscribe title={config.title} />}
 
               <PostFullFooter>
@@ -308,7 +305,6 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
           </div>
         </main>
 
-        {/* Links to Previous/Next posts */}
         <aside className="read-next" css={outer}>
           <div css={inner}>
             <ReadNextFeed>
@@ -327,7 +323,79 @@ const PageTemplate: React.FunctionComponent<PageTemplateProps> = props => {
   );
 };
 
-export default PageTemplate;
+export default PageTemplate;*/
+
+interface BlogPostTemplateProps {
+  content: any;
+  contentComponent: any;
+  description: string;
+  title: string;
+  helmet: object;
+}
+
+export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = ({
+  content,
+  contentComponent,
+  description,
+  tags,
+  title,
+  helmet,
+}) => {
+  const PostContent = contentComponent || Content
+
+  console.log(content, contentComponent, description, tags, title, helmet)
+
+  //return (<div/>)
+
+  return (
+    <section className="section">
+      {helmet || ''}
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+              {title}
+            </h1>
+            <p>{description}</p>
+            <PostContent content={content} />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+interface BlogPostProps {
+  data: any;
+}
+
+const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
+  console.log(data)
+  const { markdownRemark: post } = data
+
+  return (
+
+      <BlogPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        description={post.frontmatter.description}
+        helmet={
+          <Helmet titleTemplate="%s | Blog">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        }
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+      />
+
+  )
+}
+
+export default BlogPost
 
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
