@@ -341,6 +341,9 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   tags,
   title,
   image,
+  author,
+  date,
+  layout,
   helmet,
 }) => {
   //const PostContentComponent = contentComponent || PostContent
@@ -354,6 +357,9 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
     tags,
     title,
     image,
+    author,
+    date,
+    layout
     //helmet
   )
 
@@ -396,10 +402,10 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
       <PostContent content={content} />
       { /* <PostContentComponent htmlAst={content} /> */ }
       
-      { /* <PostFullFooter>
-        <AuthorCard author={post.frontmatter.author} />
-        <PostFullFooterRight authorId={post.frontmatter.author.id} />
-      </PostFullFooter> */ }
+      <PostFullFooter>
+        <AuthorCard author={author} />
+        <PostFullFooterRight authorId={author.id} />
+      </PostFullFooter>
 
     </article>
   )
@@ -442,6 +448,9 @@ const BlogPost: React.FunctionComponent<BlogPostProps> = ({ data }) => {
               tags={post.frontmatter.tags}
               title={post.frontmatter.title}
               image={post.frontmatter.image}
+              author={post.frontmatter.author}
+              date={post.frontmatter.date}
+              layout={post.frontmatter.layout}
             />
           </div>
         </main>

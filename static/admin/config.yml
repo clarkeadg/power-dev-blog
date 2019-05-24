@@ -22,6 +22,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "posts"
+    format: "frontmatter"
     label: "Post"
     folder: "static/content/posts"
     create: true
