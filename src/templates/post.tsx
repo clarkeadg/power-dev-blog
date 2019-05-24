@@ -342,21 +342,19 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   title,
   helmet,
 }) => {
-  const post = contentComponent || Content
-
-  console.log(post.frontmatter)
-  //console.log(content, contentComponent, description, tags, title, helmet)
-
-  //if (!post.frontmatter) {
-  //  return (<div/>)
-  //}
-
-
+ //const PostContent = contentComponent || Content
 
   return (
-
+    <article css={[PostFull]}>
+      
       <PostContent htmlAst={content} />
+      
+      { /* <PostFullFooter>
+        <AuthorCard author={post.frontmatter.author} />
+        <PostFullFooterRight authorId={post.frontmatter.author.id} />
+      </PostFullFooter> */ }
 
+    </article>
   )
 
   /*return (
@@ -376,11 +374,11 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
     </section>
   )*/
 
-  return (
+  /*return (
     <article css={[PostFull, !post.frontmatter.image && NoImage]}>
       <PostContent htmlAst={content} />
     </article>
-  )
+  )*/
 }
 
 interface BlogPostProps {
