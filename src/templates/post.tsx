@@ -342,7 +342,7 @@ export const BlogPostTemplate: React.FunctionComponent<BlogPostTemplateProps> = 
   title,
   helmet,
 }) => {
-  const PostContentComponent = contentComponent || Content
+  const PostContentComponent = contentComponent || PostContent
 
   console.log(PostContentComponent)
 
