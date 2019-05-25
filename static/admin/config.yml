@@ -96,7 +96,6 @@ collections:
               - { label: Background, name: background, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
               - { label: Color, name: color, widget: string }
 
-
   - name: carousels
     label: Carousel
     files:
