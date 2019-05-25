@@ -12,6 +12,25 @@ publish_mode: editorial_workflow
 
 collections:
 
+  - label: "Site Config"
+    name: "site-config"
+    files:
+      - label: "Site"
+        name: "siteg"
+        file: "content/site.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Headline, name: headline, widget: string }
+          - { label: Url, name: url, widget: string }
+          - { label: "Logo", name: "logo", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+
+      - label: "Nav"
+        name: "nav-primary"
+        file: "content/nav.yml"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Url, name: url, widget: string }
+
   - name: "pages"
     label: "Page"
     folder: "static/content/pages"
