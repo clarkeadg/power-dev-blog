@@ -1,0 +1,9 @@
+
+items:
+  - title: Facebook
+    icon: "facebook"
+    url: https://www.facebook.com/ghost
+
+  - title: Twitter
+    icon: "twitter"
+    url: https://twitter.com/tryghost

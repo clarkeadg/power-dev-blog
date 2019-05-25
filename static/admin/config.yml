@@ -35,6 +35,18 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Url, name: url, widget: string }
 
+      - label: "Social Links"
+        name: "nav"
+        file: "static/content/site/nav-social.yaml"
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Icon, name: icon, widget: string }
+              - { label: Url, name: url, widget: string }
+
   - name: "pages"
     label: "Page"
     folder: "static/content/pages"
