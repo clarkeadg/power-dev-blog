@@ -8,7 +8,7 @@ tags:
   - tutorials
 ---
 ### Query Selectors
-```
+```js
 document.body.getElementsByTagName()
 document.getElementsByClassName()
 document.getElementById()
@@ -30,8 +30,8 @@ function getElementsByClassName(key) {
 }
 ```
 
-## CSS properties
-```
+### CSS properties
+```js
 <element>.style.<properyName> = "propertyValue"
 
 ## Add/Remove CSS class
@@ -46,14 +46,14 @@ var removeClass = function(element, className) {
 }
 ```
 
-## Attributes
-```
+### Attributes
+```js
 <element>.getAttribute()
 <element>.setAttribute()
 ```
 
-## Navigating the DOM Tree
-```
+### Navigating the DOM Tree
+```js
 <element>.childNodes
 <element>.parentNode
 <element>.firstChild
@@ -62,21 +62,21 @@ var removeClass = function(element, className) {
 <element>.nextSibling
 ```
 
-## Creating new elements
-```
+### Creating new elements
+```js
 document.createElement()
 document.createTextNode()
 ```
 
-## Changing the document
-```
+### Changing the document
+```js
 document.body.appendChild()
 document.body.replaceChild()
 document.body.insertBefore()
 ```
 
-## Element Layout
-```
+### Element Layout
+```js
 <element>.offsetWidth
 <element>.offsetHeight
 <element>.clientWidth
@@ -84,14 +84,14 @@ document.body.insertBefore()
 <element>.getBoundingClientRect()
 ```
 
-## Current scroll position
-```
+### Current scroll position
+```js
 pageXOffset
 pageYOffset
 ```
 
-## Event Listeners
-```
+### Event Listeners
+```js
 <element>.addEventListener("click",function(e){})
 <element>.removeEventListener("click", <eventListenerName>);
 <event>.target
@@ -99,8 +99,8 @@ pageYOffset
 <event>.stopPropagation()
 ```
 
-## Arrays
-```
+### Arrays
+```js
 Array.forEach()
 Array.push()
 Arrar.pop()
@@ -109,20 +109,20 @@ Array.indexOf()
 Array.length
 ```
 
-## Objects
-```
+### Objects
+```js
 Object.create(null)
 Object.getPrototypeOf()
 Object.setPrototypeOf()
 ```
 
-## Meta Code
-```
+### Meta Code
+```js
 var myFunction = new Function("arg1,arg2", "return arg1 + arg2;");
 ```
 
-## Ajax
-```
+### Ajax
+```js
 function ajax(url, callback) {
   var req = new XMLHttpRequest();
   req.open("GET", url, true);
@@ -134,8 +134,8 @@ function ajax(url, callback) {
 }
 ```
 
-## Animations
-```
+### Animations
+```js
 function runAnimation(frameFunc) {
   var lastTime = null;
   function frame(time) {
@@ -152,8 +152,8 @@ function runAnimation(frameFunc) {
 }
 ```
 
-## Extend
-```
+### Extend
+```js
 Object.prototype.extend = function(obj) {
    for (var i in obj) {
       if (obj.hasOwnProperty(i)) {
@@ -163,8 +163,8 @@ Object.prototype.extend = function(obj) {
 };
 ```
 
-## Loops
-```
+### Loops
+```js
 arr.forEach(function(){
   
 });
@@ -184,8 +184,8 @@ for(var i=0,c=arr.length;i<c;i++) {
 }
 ```
 
-## Dependency Injection
-```
+### Dependency Injection
+```js
 (function(module){
   
 }(Module))
