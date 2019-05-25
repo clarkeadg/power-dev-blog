@@ -12,8 +12,8 @@ publish_mode: editorial_workflow
 
 collections:
 
-  - label: "Config"
-    name: "config"
+  - name: "config"
+    label: "Config"
     files:
       - label: "Site"
         name: "site"
