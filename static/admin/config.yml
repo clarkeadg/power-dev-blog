@@ -68,6 +68,18 @@ collections:
               - { label: Icon, name: icon, widget: string }
               - { label: Url, name: url, widget: string }
 
+  - name: "theme"
+    label: "Theme"
+    files:
+      - label: "Casper"
+        name: "casper"
+        file: "static/content/themes/casper.yaml"
+        fields:
+          - { label: Font1, name: title, widget: string }
+          - { label: Font2, name: title, widget: string }
+          - { label: "Background", name: "background", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+
+
   - name: "carousels"
     label: "Carousel"
     files:
