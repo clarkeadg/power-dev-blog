@@ -28,6 +28,12 @@ collections:
             widget: list
             default: ["Casper"]
 
+      - label: "Design"
+        name: "design"
+        file: "static/content/site/design.yaml"
+        fields:
+          - { label: Theme, name: theme, widget: string }
+
       - label: "Primary Nav"
         name: "nav-primary"
         file: "static/content/site/nav-primary.yaml"
@@ -82,6 +88,14 @@ collections:
           - { label: Font1, name: title, widget: string }
           - { label: Font2, name: title, widget: string }
           - { label: "Background", name: "background", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+          - label: Buttons
+            name: buttons
+            widget: list
+            fields:
+              - { label: Type, name: id, widget: string }
+              - { label: "Background", name: "background", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Color, name: color, widget: string }
+
 
   - name: "carousels"
     label: "Carousel"
