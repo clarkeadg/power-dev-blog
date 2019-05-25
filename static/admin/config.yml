@@ -17,7 +17,7 @@ collections:
     folder: "static/content/pages"
     create: true
     slug: "{{slug}}"
-    preview_path: preview-pages/{{slug}}
+    preview_path: pages/{{slug}}
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
@@ -32,7 +32,7 @@ collections:
     folder: "static/content/posts"
     create: true
     slug: "{{slug}}"
-    preview_path: preview-posts/{{slug}}
+    preview_path: posts/{{slug}}
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
@@ -41,4 +41,6 @@ collections:
       - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+
 
