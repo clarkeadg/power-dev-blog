@@ -1,11 +1,12 @@
-- title: General
-  description: Some of the greatest words ever spoken.
-  image: img/speeches-cover.jpg
+items:
+  - title: General
+    description: Some of the greatest words ever spoken.
+    image: ../img/speeches-cover.jpg
 
-- title: Updates
-  description: Some of the greatest words ever spoken.
-  image: img/speeches-cover.jpg
+  - title: Updates
+    description: Some of the greatest words ever spoken.
+    image: ../img/speeches-cover.jpg
 
-- title: Sales
-  description: Some of the greatest words ever spoken.
-  image: img/speeches-cover.jpg
+  - title: Sales
+    description: Some of the greatest words ever spoken.
+    image: ../img/speeches-cover.jpg
