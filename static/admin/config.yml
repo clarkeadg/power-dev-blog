@@ -82,6 +82,27 @@ collections:
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
 
+  - name: "news"
+    label: "News"
+    files:
+      - label: "Categories"
+        name: "categories"
+        file: "static/content/news/categories.yaml"
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+
+      - label: "Tags"
+        name: "tags"
+        file: "static/content/news/tags.yaml"
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+
   - name: "posts"
     label: "Post"
     folder: "static/content/posts"
@@ -96,8 +117,4 @@ collections:
       - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-
-
-
 
