@@ -12,12 +12,12 @@ publish_mode: editorial_workflow
 
 collections:
 
-  - name: "config"
-    label: "Config"
+  - name: "site"
+    label: "Site"
     files:
-      - label: "Site"
-        name: "site"
-        file: "static/content/site.yaml"
+      - label: "Branding"
+        name: "branding"
+        file: "static/content/site/branding.yaml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Headline, name: headline, widget: string }
@@ -26,7 +26,7 @@ collections:
 
       - label: "Nav"
         name: "nav"
-        file: "static/content/nav.yaml"
+        file: "static/content/site/nav.yaml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Url, name: url, widget: string }
