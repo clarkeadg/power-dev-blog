@@ -12,31 +12,31 @@ publish_mode: editorial_workflow
 
 collections:
 
-  - name: "site"
-    label: "Site"
+  - name: site
+    label: Site
     files:
-      - label: "Branding"
-        name: "branding"
-        file: "static/content/site/branding.yaml"
+      - label: Branding
+        name: branding
+        file: static/content/site/branding.yaml
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Headline, name: headline, widget: string }
           - { label: Url, name: url, widget: string }
-          - { label: "Logo", name: "logo", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+          - { label: Logo, name: logo, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
           - label: Theme
             name: theme
             widget: list
-            default: ["Casper"]
+            default: [Casper]
 
-      - label: "Design"
-        name: "design"
-        file: "static/content/site/design.yaml"
+      - label: Design
+        name: design
+        file: static/content/site/design.yaml
         fields:
           - { label: Theme, name: theme, widget: string }
 
-      - label: "Primary Nav"
-        name: "nav-primary"
-        file: "static/content/site/nav-primary.yaml"
+      - label: Primary Nav
+        name: nav-primary
+        file: static/content/site/nav-primary.yaml
         fields:
           - label: Items
             name: items
@@ -45,9 +45,9 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Url, name: url, widget: string }
 
-      - label: "Footer"
-        name: "footer"
-        file: "static/content/site/footer.yaml"
+      - label: Footer
+        name: footer
+        file: static/content/site/footer.yaml
         fields:
           - { label: Copyright, name: copyright, widget: string }
           - label: Partner Links
@@ -56,7 +56,7 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Name, name: name, widget: string }
-              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
               - { label: Url, name: url, widget: string }
           - label: Account Links
             name: account_links
@@ -66,9 +66,9 @@ collections:
               - { label: Name, name: name, widget: string }
               - { label: Url, name: url, widget: string }
 
-      - label: "Social Links"
-        name: "nav-social"
-        file: "static/content/site/nav-social.yaml"
+      - label: Social Links
+        name: nav-social
+        file: static/content/site/nav-social.yaml
         fields:
           - label: Items
             name: items
@@ -78,38 +78,38 @@ collections:
               - { label: Icon, name: icon, widget: string }
               - { label: Url, name: url, widget: string }
 
-  - name: "theme"
-    label: "Theme"
+  - name: theme
+    label: Theme
     files:
-      - label: "Casper"
-        name: "casper"
-        file: "static/content/themes/casper.yaml"
+      - label: Casper
+        name: casper
+        file: static/content/themes/casper.yaml
         fields:
           - { label: Font1, name: title, widget: string }
           - { label: Font2, name: title, widget: string }
-          - { label: "Background", name: "background", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+          - { label: Background, name: background, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
           - label: Buttons
             name: buttons
             widget: list
             fields:
               - { label: Type, name: id, widget: string }
-              - { label: "Background", name: "background", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Background, name: background, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
               - { label: Color, name: color, widget: string }
 
 
-  - name: "carousels"
-    label: "Carousel"
+  - name: carousels
+    label: Carousel
     files:
-      - label: "Hero"
-        name: "hero"
-        file: "static/content/carousels/hero.yaml"
+      - label: Hero
+        name: hero
+        file: static/content/carousels/hero.yaml
         fields:
           - label: Items
             name: items
             widget: list
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
               - label: Buttons
                 name: buttons
                 widget: list
@@ -117,27 +117,27 @@ collections:
                   - { label: Title, name: title, widget: string }
                   - { label: Url, name: url, widget: string }
 
-  - name: "pages"
-    label: "Page"
-    folder: "static/content/pages"
+  - name: pages
+    label: Page
+    folder: static/content/pages
     create: true
-    slug: "{{slug}}"
+    slug: {{slug}}
     preview_path: pages/{{slug}}
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Author, name: author, widget: hidden, default: Ghost }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Body, name: body, widget: markdown }
 
-  - name: "news"
-    label: "News"
+  - name: news
+    label: News
     files:
-      - label: "Authors"
-        name: "authors"
-        file: "static/content/news/authors.yaml"
+      - label: Authors
+        name: authors
+        file: static/content/news/authors.yaml
         fields:
           - label: Items
             name: items
@@ -145,11 +145,11 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: string }
-              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
 
-      - label: "Categories"
-        name: "categories"
-        file: "static/content/news/categories.yaml"
+      - label: Categories
+        name: categories
+        file: static/content/news/categories.yaml
         fields:
           - label: Items
             name: items
@@ -157,11 +157,11 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: string }
-              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
 
-      - label: "Tags"
-        name: "tags"
-        file: "static/content/news/tags.yaml"
+      - label: Tags
+        name: tags
+        file: static/content/news/tags.yaml
         fields:
           - label: Items
             name: items
@@ -169,49 +169,49 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: string }
-              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+              - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
 
-  - name: "posts"
-    label: "Post"
-    folder: "static/content/posts"
+  - name: posts
+    label: Post
+    folder: static/content/posts
     create: true
-    slug: "{{slug}}"
+    slug: {{slug}}
     preview_path: posts/{{slug}}
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Author, name: author, widget: hidden, default: Ghost }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Body, name: body, widget: markdown }
 
-  - name: "microsites"
-    label: "Microsite"
-    folder: "static/content/microsites"
+  - name: microsites
+    label: Microsite
+    folder: static/content/microsites
     create: true
-    slug: "{{slug}}"
+    slug: {{slug}}
     preview_path: microsites/{{slug}}
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Author, name: author, widget: hidden, default: Ghost }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Body, name: body, widget: markdown }
 
-  - name: "newsletters"
-    label: "Newsletter"
-    folder: "static/content/newsletters"
+  - name: newsletters
+    label: Newsletter
+    folder: static/content/newsletters
     create: true
-    slug: "{{slug}}"
+    slug: {{slug}}
     preview_path: newsletters/{{slug}}
     fields:
-      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
-      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: Layout, name: layout, widget: hidden, default: post }
+      - { label: Author, name: author, widget: hidden, default: Ghost }
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Image, name: image, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Body, name: body, widget: markdown }
