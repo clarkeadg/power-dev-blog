@@ -1,5 +1,12 @@
 font1: "Arial"
 font2: "Comic Sans"
 background: ../img/brvxvjgmuwc_maxresdefault.jpg
+buttons:
+  - id: primary
+    background: ../img/brvxvjgmuwc_maxresdefault.jpg
+    color: "#FFF"
+  - id: secondary
+    background: ../img/brvxvjgmuwc_maxresdefault.jpg
+    color: "#FFF"
 
 
