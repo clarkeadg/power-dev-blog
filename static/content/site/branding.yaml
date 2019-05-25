@@ -1,4 +1,4 @@
 title: Power Dev
-logo: img/ghost-logo.png
 headline: Learn to write awesome code
-url: https://powerdev.netlify.com/
+url: 'https://powerdev.netlify.com/'
+logo: ../img/ghost-logo.png
