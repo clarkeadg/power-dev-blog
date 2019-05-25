@@ -5,7 +5,7 @@ title: Javascript
 date: 2019-05-25T04:25:06.044Z
 image: ../img/9URw9LasJ5E_maxresdefault.jpg
 tags:
-  - tutorials
+  - Tutorials
 ---
 ### Query Selectors
 ```

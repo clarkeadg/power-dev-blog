@@ -5,7 +5,7 @@ title: How to use GIT
 date: 2019-05-25T04:22:04.660Z
 image: ../img/maxresdefault.jpg
 tags:
-  - tutorials
+  - Tutorials
 ---
 #### Clone repo
 ```
