@@ -1,0 +1,22 @@
+
+legal: Copyright Power Dev. All Rights Reserved.
+
+partner_links:
+  - title: Steam
+    name: steam
+    image: ../img/speeches-cover.jpg
+    url: /
+
+  - title: Xbox
+    name: xbox
+    image: ../img/speeches-cover.jpg
+    url: /
+
+account_links:
+  - title: Account
+    name: account
+    url: /
+
+  - title: Support
+    name: support
+    url: /
