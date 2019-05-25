@@ -96,6 +96,7 @@ collections:
               - { label: Background, name: background, widget: custompathimage, customMediaPath: ../img/, rawMediaPath: https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/ }
               - { label: Color, name: color, widget: string }
 
+
   - name: carousels
     label: Carousel
     files:
@@ -120,7 +121,7 @@ collections:
     label: Page
     folder: static/content/pages
     create: true
-    slug: {{slug}}
+    slug: "{{slug}}"
     preview_path: pages/{{slug}}
     fields:
       - { label: Layout, name: layout, widget: hidden, default: post }
@@ -174,7 +175,7 @@ collections:
     label: Post
     folder: static/content/posts
     create: true
-    slug: {{slug}}
+    slug: "{{slug}}"
     preview_path: posts/{{slug}}
     fields:
       - { label: Layout, name: layout, widget: hidden, default: post }
@@ -189,7 +190,7 @@ collections:
     label: Microsite
     folder: static/content/microsites
     create: true
-    slug: {{slug}}
+    slug: "{{slug}}"
     preview_path: microsites/{{slug}}
     fields:
       - { label: Layout, name: layout, widget: hidden, default: post }
@@ -204,7 +205,7 @@ collections:
     label: Newsletter
     folder: static/content/newsletters
     create: true
-    slug: {{slug}}
+    slug: "{{slug}}"
     preview_path: newsletters/{{slug}}
     fields:
       - { label: Layout, name: layout, widget: hidden, default: post }
