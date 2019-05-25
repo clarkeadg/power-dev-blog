@@ -17,7 +17,7 @@ collections:
     files:
       - label: "Site"
         name: "site"
-        file: "static/content/site.yml"
+        file: "static/content/site.yaml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Headline, name: headline, widget: string }
@@ -26,7 +26,7 @@ collections:
 
       - label: "Nav"
         name: "nav"
-        file: "static/content/nav.yml"
+        file: "static/content/nav.yaml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Url, name: url, widget: string }
