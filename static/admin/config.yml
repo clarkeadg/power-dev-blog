@@ -48,7 +48,7 @@ collections:
               - { label: Url, name: url, widget: string }
 
   - name: "pages"
-    label: "Page"
+    label: "Pages"
     folder: "static/content/pages"
     create: true
     slug: "{{slug}}"
@@ -63,7 +63,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "posts"
-    label: "Post"
+    label: "Posts"
     folder: "static/content/posts"
     create: true
     slug: "{{slug}}"
