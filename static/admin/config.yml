@@ -24,12 +24,16 @@ collections:
           - { label: Url, name: url, widget: string }
           - { label: "Logo", name: "logo", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
 
-      - label: "Nav"
+      - label: "Primary Nav"
         name: "nav"
-        file: "static/content/site/nav.yaml"
+        file: "static/content/site/nav-primary.yaml"
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Url, name: url, widget: string }
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Url, name: url, widget: string }
 
   - name: "pages"
     label: "Page"
