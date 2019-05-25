@@ -1,0 +1,9 @@
+items:
+  - title: Welcome
+    image: ../img/brvxvjgmuwc_maxresdefault.jpg
+    buttons:
+      - title: Get Started
+        url: /pages/getting-started
+
+
+
