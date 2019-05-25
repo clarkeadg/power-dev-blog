@@ -3,7 +3,7 @@ layout: post
 author: Ghost
 title: About
 date: 2019-05-22T07:03:47.149Z
-image: ../img/alex-knight-326705-unsplash.jpg
+image: ../img/2tni-bt-90i_maxresdefault.jpg
 tags:
   - Page
 ---
