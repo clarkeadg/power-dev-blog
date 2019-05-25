@@ -109,11 +109,14 @@ collections:
       - label: "Authors"
         name: "authors"
         file: "static/content/news/authors.yaml"
-        widget: list
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: string }
-          - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+              - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
 
       - label: "Categories"
         name: "categories"
