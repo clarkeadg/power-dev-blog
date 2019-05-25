@@ -3,7 +3,7 @@ layout: post
 author: Ghost
 title: Getting Started with Ember
 date: 2019-05-22T07:00:47.149Z
-image: ../img/testimg1.jpg
+image: ../img/brvxvjgmuwc_maxresdefault.jpg
 tags:
   - Tutorials
 ---
