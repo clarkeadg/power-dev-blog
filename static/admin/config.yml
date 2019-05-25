@@ -25,7 +25,7 @@ collections:
           - { label: "Logo", name: "logo", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
 
       - label: "Primary Nav"
-        name: "nav"
+        name: "nav-primary"
         file: "static/content/site/nav-primary.yaml"
         fields:
           - label: Items
@@ -36,7 +36,7 @@ collections:
               - { label: Url, name: url, widget: string }
 
       - label: "Social Links"
-        name: "nav"
+        name: "nav-social"
         file: "static/content/site/nav-social.yaml"
         fields:
           - label: Items
