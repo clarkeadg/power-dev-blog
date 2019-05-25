@@ -7,78 +7,78 @@ image: ../img/maxresdefault.jpg
 tags:
   - tutorials
 ---
-#### Clone repo
-```
+### Clone repo
+```sh
 git clone <repo_path> <optional_foldername>
 ```
 
-#### Get branches
-```
+### Get branches
+```sh
 git fetch
 ```
 
-#### Checkout branch
-```
+### Checkout branch
+```sh
 git checkout <branch_name>
 ```
 
-#### Create branch
-```
+### Create branch
+```sh
 git checkout -b <branch_name>
 ```
 
-#### Delete branch
-```
+### Delete branch
+```sh
 git branch -d <branch_name>
 ```
 
-#### Delete remote branch
-```
+### Delete remote branch
+```sh
 git push origin --delete <branch_name>
 ```
 
-#### Pull latest code from git repo
-```
+### Pull latest code from git repo
+```sh
 git pull origin <branch_name>
 ```
 
-#### Check file status for modified and new files
-```
+### Check file status for modified and new files
+```sh
 git status
 ```
 
-#### Add files to commit
-```
+### Add files to commit
+```sh
 git add .
 ```
 
-#### Commit changes
-```
+### Commit changes
+```sh
 git commit -a -m "commit message"
 ```
 
-#### Push Changes
-```
+### Push Changes
+```sh
 git push origin <branch_name>
 ```
 
-#### Merge branches
-```
+### Merge branches
+```sh
 git merge <branch_name>
 ```
 
-#### Branch comparison
-```
+### Branch comparison
+```sh
 git diff <branch_name>
 ```
 
-#### Undo all file changes
-```
+### Undo all file changes
+```sh
 git checkout .
 ```
 
-#### Go backwards to undo latest commits
-```
+### Go backwards to undo latest commits
+```sh
 git checkout <commit_id>
 git commit -a -m "undoing all commits past <commit_id>"
 git push origin <branch_name>
