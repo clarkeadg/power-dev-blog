@@ -21,6 +21,7 @@ CMS.registerPreviewStyle(styles.toString(), { raw: true })
 
 // register templates
 CMS.registerPreviewTemplate('posts', BlogPostPreview)
+CMS.registerPreviewTemplate('pages', BlogPostPreview)
 
 // register widgets
 CMS.registerWidget("custompathimage", CustomPathImageControl, CustomPathImagePreview);

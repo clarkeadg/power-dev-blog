@@ -8,6 +8,8 @@ public_folder: /img
 site_url: https://powerdev.netlify.com
 logo_url: https://powerdev.netlify.com/content/img/ghost-logo.png
 
+publish_mode: editorial_workflow
+
 collections:
 
   - name: "pages"
@@ -15,6 +17,7 @@ collections:
     folder: "static/content/pages"
     create: true
     slug: "{{slug}}"
+    preview_path: preview-pages/{{slug}}
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
@@ -29,6 +32,7 @@ collections:
     folder: "static/content/posts"
     create: true
     slug: "{{slug}}"
+    preview_path: preview-posts/{{slug}}
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
