@@ -132,3 +132,18 @@ collections:
       - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "newsletters"
+    label: "Newsletter"
+    folder: "static/content/newsletters"
+    create: true
+    slug: "{{slug}}"
+    preview_path: newsletters/{{slug}}
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Author", name: "author", widget: "hidden", default: "Ghost" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "custompathimage", customMediaPath: "../img/", rawMediaPath: "https://raw.githubusercontent.com/clarkeadg/power-dev-blog/master/static/content/img/" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "markdown" }
