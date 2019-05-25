@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Getting Started
-image: ../img/writing.jpg
 author: Ghost
+title: Getting Started
 date: 2019-05-20T07:03:47.149Z
-tags: 
+image: ../img/kbyqyzncxdi_maxresdefault.jpg
+tags:
   - Tutorials
 ---
 
