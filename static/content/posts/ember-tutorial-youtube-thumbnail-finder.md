@@ -3,7 +3,7 @@ layout: post
 author: Ghost
 title: Build a Youtube Thumbnail Finder with Ember
 date: 2019-05-22T07:11:47.149Z
-image: ../img/uxqq43f9gr0_maxresdefault.jpg
+image: ../img/2tni-bt-90i_maxresdefault.jpg
 tags:
   - Tutorials
 ---
